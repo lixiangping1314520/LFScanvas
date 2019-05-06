@@ -5,27 +5,234 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <script type="text/javascript" src="./js/three.min.js"></script>
+    <script type="text/javascript" src="./js/OrbitControls.js"></script>
 </head>
-<canvas id="canvas" width="1024" height="768" style="border:1px solid #aaa;display:block;margin:50 auto;"></canvas>
+<canvas id="cc"></canvas>
+<!-- <canvas id="canvas" width="1024" height="768" style="border:1px solid #aaa;display:block;margin:50 auto;"></canvas> -->
 <body>
    <script type="text/javascript">
    
-    var drawing=[
-        
-        ]
+    var drawing={},
+      drawing={
+       Square:[
+           {
+            p:{
+               x:0,
+               y:0,
+               c:80,
+               k:200,
+           }
+           },
+           {
+            p:{
+               x:80,
+               y:0,
+               c:200,
+               k:250,
+           } 
+           },
+           {
+            p:{
+               x:340,
+               y:50,
+               c:150,
+               k:190,
+           } 
+           },
+       ],
+        polygon:[
+
+        ],
+      }
         function init(){
             var vanvas=document.getElementById("canvas");
             canvas.width=1024;
-            canvas.height=768;
+            canvas.height=600;
             var context=canvas.getContext("2d");
-            context.beginPath();
-            context.arc(300, 350, 100, 0, Math.PI * 2, true);
-            //不关闭路径路径会一直保留下去
-            context.closePath();
-            context.fillStyle = 'rgba(0,255,0,0.25)';
+            var index=this.drawing.Square;
+            for (var i = 0; i < index.length; i++) {
+                 console.log(index[i].p)
+                 context.beginPath();
+                 context.fillStyle = 'green';  //设置填充的背景颜色
+                 context.fillRect(index[i].p.x,index[i].p.y,index[i].p.c,index[i].p.k); //绘制 800*300 像素的已填充矩形：
+                context.fillStyle = '#fff';
+                context.strokeStyle = '#fff'; //设置笔触的颜色
+                context.font = "bold 20px '字体','字体','微软雅黑','宋体'"; //设置字体
+                context.textBaseline = 'hanging'; //在绘制文本时使用的当前文本基线
+                context.fillText('LG223' ,150 ,100); //设置文本内
+                context.fillText('言几又' ,150 ,120); //设置文本内
+                context.stroke();
+                context.closePath();
+            }
+            // //言又几
+            // context.beginPath();
+            // context.fillStyle = 'green';  //设置填充的背景颜色
+            // context.fillRect(0,0,80,200); //绘制 800*300 像素的已填充矩形：
+            // context.fillStyle = '#fff';
+            // context.strokeStyle = '#fff'; //设置笔触的颜色
+            // context.font = "bold 40px '字体','字体','微软雅黑','宋体'"; //设置字体
+            // context.textBaseline = 'hanging'; //在绘制文本时使用的当前文本基线
+            // // context.fillText('欢迎收看' ,20 ,50); //设置文本内
+            // context.stroke();
+            // context.closePath();
+
+            // context.beginPath();
+            // context.fillStyle = 'green';  //设置填充的背景颜色
+            // context.fillRect(80,0,200,250); //绘制 800*300 像素的已填充矩形：
+            // context.fillStyle = '#fff';
+            // context.strokeStyle = '#fff'; //设置笔触的颜色
+            // context.font = "bold 20px '字体','字体','微软雅黑','宋体'"; //设置字体
+            // context.textBaseline = 'hanging'; //在绘制文本时使用的当前文本基线
+            // context.fillText('LG223' ,150 ,100); //设置文本内
+            // context.fillText('言几又' ,150 ,120); //设置文本内
+            // context.stroke();
+            // context.closePath();
+            // //
+            // //滑冰场
+            // context.beginPath();
+            // context.fillStyle = 'green';  //设置填充的背景颜色
+            // context.fillRect(340,50,150,190); //绘制 800*300 像素的已填充矩形：
+            // context.fillStyle = '#fff';
+            // context.strokeStyle = '#fff'; //设置笔触的颜色
+            // context.font = "bold 20px '字体','字体','微软雅黑','宋体'"; //设置字体
+            // context.textBaseline = 'hanging'; //在绘制文本时使用的当前文本基线
+            // context.fillText('滑冰场' ,390 ,150); //设置文本内
+            // context.stroke();
+            // context.closePath();
+
+             //LG220
+             context.beginPath(); //设置填充的背景颜色
+            context.moveTo(600,40)
+            context.lineTo(600,220)
+            context.lineTo(610,230)
+            context.lineTo(690,230)
+            context.lineTo(690,200)
+            context.lineTo(760,200)
+            context.lineTo(760,100)
+            context.lineTo(820,100)
+            context.lineTo(820,0)
+            context.lineTo(690,0)
+            context.lineTo(600,40)
+            context.fillStyle = 'green'; 
             context.fill();
+            context.strokeStyle = '#000000'; //设置笔触的颜色
+            context.font = "bold 20px '字体','字体','微软雅黑','宋体'"; //设置字体
+            context.textBaseline = 'hanging'; //在绘制文本时使用的当前文本基线
+            // context.fillText('滑冰场' ,390 ,150); //设置文本内
+            context.stroke();
+            context.closePath();
+
+            // context.fillRect(0,0,500,350);
+            // context.strokeRect(50,50,180,120);
+    //         //大圆
+    // context.beginPath();
+    // context.arc(210,210,200,0,2*Math.PI);
+    // context.stroke();
+    // context.closePath();
+    //左边的大黑半圆
+    // context.beginPath();
+    // context.arc(210,210,200,0.5*Math.PI,1.5*Math.PI);
+    // context.fill();
+    // context.closePath();
+    // //上面的左边半圆
+    // context.beginPath();
+    // context.arc(210,110,100,0.5*Math.PI,1.5*Math.PI);
+    // context.fillStyle="white";
+    // context.fill();
+    // context.closePath();
+    // //上面的小黑圆
+    // context.beginPath();
+    // context.arc(210,110,33,0,2*Math.PI);
+    // context.fillStyle="black";
+    // context.fill();
+    // context.closePath();
+    // //下面的右边半黑圆
+    // context.beginPath();
+    // context.arc(210,310,100,Math.PI,(3/2*Math.PI),true);
+    // context.fill();
+    // context.closePath();
+    // //下面的小白圆
+    // context.beginPath();
+    // context.arc(210,310,33,0,2*Math.PI);
+    // context.fillStyle="white";
+    // context.fill();
+    // context.closePath();
         }
-        this.init();
+        function init3D(){
+           // 创建一个场景，它将保存我们所有的元素，如物体、照相机和灯光。
+        var scene = new THREE.Scene();
+
+// 创建一个摄像机，它定义了我们所处的位置.
+var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+
+// 创建渲染并设置大小 指定渲染canvas对象
+var renderer = new THREE.WebGLRenderer({canvas: document.querySelector("#cc")});
+
+renderer.setClearColor(0xEEEEEE);
+renderer.setSize(window.innerWidth, window.innerHeight);
+
+//创建一个xyz坐标轴，方便初学者理解三维坐标
+var axes = new THREE.AxisHelper( 20 );
+scene.add(axes);
+
+// 创建地面
+var planeGeometry = new THREE.PlaneGeometry(60,20,1,1);
+var planeMaterial = new THREE.MeshBasicMaterial({color: 0xcccccc});
+var plane = new THREE.Mesh(planeGeometry,planeMaterial);
+
+
+// 地面默认是垂直的。所以需要旋转一下地面。
+plane.rotation.x=-0.5*Math.PI;
+plane.position.x=15
+plane.position.y=0
+plane.position.z=0
+
+// 地面添加到场景里面去
+scene.add(plane);
+
+// 创建一个立方体
+var cubeGeometry = new THREE.CubeGeometry(4,4,4);
+var cubeMaterial = new THREE.MeshBasicMaterial({color: 0xff0000, wireframe: true});
+var cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
+
+
+// 设置立方体坐标位置
+cube.position.x=-2;
+cube.position.y=3;
+cube.position.z=0;
+
+ // 立方体放入场景
+scene.add(cube);
+
+
+ // 创建一个球体
+var sphereGeometry = new THREE.SphereGeometry(4,20,20);
+var sphereMaterial = new THREE.MeshBasicMaterial({color: 0x7777ff, wireframe: false});
+var sphere = new THREE.Mesh(sphereGeometry,sphereMaterial);
+
+//设置球体坐标位置
+sphere.position.x=20;
+sphere.position.y=4;
+sphere.position.z=2;
+
+
+ // 球体放入场景
+scene.add(sphere);
+
+  //设置相机位置
+camera.position.x = -30;
+camera.position.y = 40;
+camera.position.z = 30;
+camera.lookAt(scene.position);
+
+
+
+// 执行一次渲染器，GPU渲染成图像，绘制到canvas里面呈现
+renderer.render(scene, camera);
+        }
+        this.init3D();
+        // this.init();
    </script>
     
 </body>
